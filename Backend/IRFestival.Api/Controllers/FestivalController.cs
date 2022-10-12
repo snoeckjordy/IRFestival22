@@ -1,9 +1,7 @@
-﻿using System.Net;
-
-using Microsoft.AspNetCore.Mvc;
-
-using IRFestival.Api.Data;
+﻿using IRFestival.Api.Data;
 using IRFestival.Api.Domain;
+using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace IRFestival.Api.Controllers
 {

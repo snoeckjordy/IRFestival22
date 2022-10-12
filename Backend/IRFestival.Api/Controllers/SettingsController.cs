@@ -1,10 +1,8 @@
 ﻿
-using System.Net;
-
+using IRFestival.Api.Options;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-
-using IRFestival.Api.Options;
+using System.Net;
 
 namespace IRFestival.Api.Controllers
 {

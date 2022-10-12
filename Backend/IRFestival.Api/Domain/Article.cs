@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace IRFestival.Api.Domain
+﻿namespace IRFestival.Api.Domain
 {
     public class Article
     {
