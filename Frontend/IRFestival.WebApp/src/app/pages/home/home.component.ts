@@ -29,6 +29,9 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.AppInsights.loadAppInsights();
+    this.AppInsights.trackPageView();
+
     this.artists$ = this.festivalApiService.getArtists().pipe(shareReplay());
 
     this.schedule$ = this.festivalApiService.getSchedule().pipe(
