@@ -6,9 +6,7 @@ export const environment = {
   production: false,
   festivalName: 'IRFestival - DEV',
   apiBaseUrl: 'https://localhost:7097/api/',
-  connectionstringAppInsights: {
-    instrumentationKey: '524e4949-28a3-435e-bf6a-d053985583d9',
-  },
+  connectionstringAppInsights: '524e4949-28a3-435e-bf6a-d053985583d9',
 };
 
 /*

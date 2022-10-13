@@ -21,8 +21,7 @@ export class HomeComponent implements OnInit {
   constructor(private festivalApiService: FestivalApiService) {
     this.AppInsights = new ApplicationInsights({
       config: {
-        connectionString:
-          environment.connectionstringAppInsights.instrumentationKey,
+        connectionString: environment.connectionstringAppInsights,
         enableAutoRouteTracking: true,
       },
     });
