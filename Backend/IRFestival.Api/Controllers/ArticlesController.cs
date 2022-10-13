@@ -14,20 +14,21 @@ namespace IRFestival.Api.Controllers
     {
         private CosmosClient _cosmosClient { get; set; }
         private Container _websiteArticlesContainer { get; set; }
-        private Database database { get; set; }
 
         public ArticlesController(IConfiguration configuration)
         {
             _cosmosClient = new CosmosClient(configuration.GetConnectionString("CosmosConnection"));
+            _websiteArticlesContainer = _cosmosClient.GetContainer("IRFestivalArticles", "WebsiteArticles");
         }
 
 
         [HttpGet]
         public async Task GetDatabase()
         {
-            database = await _cosmosClient.CreateDatabaseIfNotExistsAsync("IRFestivalArticles");
+            Database database = await _cosmosClient.CreateDatabaseIfNotExistsAsync("IRFestivalArticles");
             _websiteArticlesContainer = await database.CreateContainerIfNotExistsAsync("WebsiteArticles", "/tag");
         }
+
 
         [HttpPost("PostArticle")]
         public async Task<ActionResult> PostArticle(Article dummyArticle)
