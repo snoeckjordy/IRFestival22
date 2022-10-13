@@ -5,9 +5,11 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>227d7042-bc9c-499f-bbfc-8794e3a9ad8d</UserSecretsId>
+    <ApplicationInsightsResourceId>/subscriptions/9b03d76c-8948-4a70-9cb0-f8ff18f32c1b/resourceGroups/AzureTrackLab/providers/microsoft.insights/components/IRFestivalMonitorjs</ApplicationInsightsResourceId>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.15.0" />
     <PackageReference Include="Microsoft.Azure.Cosmos" Version="3.31.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.10">
