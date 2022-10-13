@@ -28,6 +28,7 @@ namespace IRFestival.Api.Controllers
         public ActionResult GetStages()
         {
             return Ok(FestivalDataSource.Current.Stages);
+
         }
 
         [HttpPost("Favorite")]
