@@ -10,15 +10,16 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+builder.Configuration.AddAzureKeyVault(
+    new Uri($"https://irfestivalkeyvaultjs.vault.azure.net/"),
+    new DefaultAzureCredential(new DefaultAzureCredentialOptions()));
+builder.Services.Configure<AppSettingsOptions>(builder.Configuration.GetSection("AppSettings"));
 builder.Services.AddCors();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Configuration.AddAzureKeyVault(
-    new Uri($"https://irfestivalkeyvaultjs.vault.azure.net/"),
-    new DefaultAzureCredential(new DefaultAzureCredentialOptions()));
-builder.Services.Configure<AppSettingsOptions>(builder.Configuration.GetSection("AppSettings"));
+
 
 //Storage
 var storageSharedKeyCredential = new StorageSharedKeyCredential(
