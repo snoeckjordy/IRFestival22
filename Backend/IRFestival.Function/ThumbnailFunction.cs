@@ -17,7 +17,7 @@ namespace IRFestival.Function
             [BlobTrigger("festivalpics-uploaded/{name}", Connection = "StorageConnectionString")] Stream image, string name, ILogger log,
             [Blob("festivalthumbs/{name}", FileAccess.Write, Connection = "StorageConnectionString")] Stream thumbnail)
         {
-            log.LogInformation($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {image.Length} Bytes");
+            log.LogInformation($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {image.Length} Bytes"); 
             using Image<Rgba32> input = Image.Load<Rgba32>(image, out IImageFormat format); 
             input.Mutate(i => { i.Resize(340, 0); int height = i.GetCurrentSize().Height;
             i.Crop(new Rectangle(0, 0, 340, height < 226 ? height : 226)); });
