@@ -12,6 +12,7 @@ namespace IRFestival.Api.Controllers
     [ApiController]
     public class ArticlesController : Controller
     {
+
         private CosmosClient _cosmosClient { get; set; }
         private Container _websiteArticlesContainer { get; set; }
 

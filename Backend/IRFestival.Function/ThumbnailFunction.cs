@@ -13,6 +13,7 @@ namespace IRFestival.Function
     public class ThumbnailFunction
     {
 
+
         [FunctionName("ThumbnailFunction")]
         public void Run(
             [BlobTrigger("festivalpics-uploaded/{name}", Connection = "StorageConnectionString")] Stream image, string name, ILogger log,
