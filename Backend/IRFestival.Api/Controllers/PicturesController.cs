@@ -21,7 +21,7 @@ namespace IRFestival.Api.Controllers
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(string[]))]
         public string[] GetAllPictureUrls()
         {
-            var container = BlobUtility.GetPicturesContainer();
+            var container = BlobUtility.GetThumbsContainer();
             return container.GetBlobs()
                 .Select(blob => BlobUtility.GetSasUri(container, blob.Name))
                 .ToArray();
