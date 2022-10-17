@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 
 var builder = WebApplication.CreateBuilder(args);
-//
+////
 //// Add services to the container.
 //builder.Configuration.AddAzureKeyVault(
 //    new Uri($"https://irfestivalkeyvaultjs.vault.azure.net/"),
@@ -19,6 +19,8 @@ var storageSharedKeyCredential = new StorageSharedKeyCredential(
     builder.Configuration.GetValue<string>("Storage:AccountName"),
     builder.Configuration.GetValue<string>("Storage:AccountKey"));
 string blobUri = "https://" + storageSharedKeyCredential.AccountName + ".blob.core.windows.net";
+
+builder.Services.Configure<AppSettingsOptions>(builder.Configuration.GetSection("AppSettings"));
 
 builder.Services.AddSingleton(p => new BlobServiceClient(new Uri(blobUri), storageSharedKeyCredential));
 builder.Services.AddSingleton(p => storageSharedKeyCredential);
