@@ -16,9 +16,9 @@ export class PicturesApiService {
       'Ocp-Apim-Subscription-Key',
       '1bd54acd932e490fbdc1c2f7ab0e7814'
     );
-    return this.httpClient.get<string[]>(
-      `${(this.baseUrl, { headers: headers })}`
-    );
+    return this.httpClient.get<string[]>(`${this.baseUrl}`, {
+      headers: headers,
+    });
   }
 
   upload(file: File): Observable<never> {
