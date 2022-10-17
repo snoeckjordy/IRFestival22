@@ -20,8 +20,6 @@ var storageSharedKeyCredential = new StorageSharedKeyCredential(
     builder.Configuration.GetValue<string>("Storage:AccountKey"));
 string blobUri = "https://" + storageSharedKeyCredential.AccountName + ".blob.core.windows.net";
 
-builder.Services.Configure<AppSettingsOptions>(builder.Configuration.GetSection("AppSettings"));
-
 builder.Services.AddSingleton(p => new BlobServiceClient(new Uri(blobUri), storageSharedKeyCredential));
 builder.Services.AddSingleton(p => storageSharedKeyCredential);
 builder.Services.AddSingleton<BlobUtility>();
