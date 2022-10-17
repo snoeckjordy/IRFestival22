@@ -9,11 +9,11 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 //
-// Add services to the container.
-builder.Configuration.AddAzureKeyVault(
-    new Uri($"https://irfestivalkeyvaultjs.vault.azure.net/"),
-    new DefaultAzureCredential(new DefaultAzureCredentialOptions())
-);
+//// Add services to the container.
+//builder.Configuration.AddAzureKeyVault(
+//    new Uri($"https://irfestivalkeyvaultjs.vault.azure.net/"),
+//    new DefaultAzureCredential(new DefaultAzureCredentialOptions())
+//);
 
 var storageSharedKeyCredential = new StorageSharedKeyCredential(
     builder.Configuration.GetValue<string>("Storage:AccountName"),
