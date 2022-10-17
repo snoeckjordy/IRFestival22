@@ -24,7 +24,13 @@ export class PicturesApiService {
   upload(file: File): Observable<never> {
     const data = new FormData();
     data.set('file', file);
-
-    return this.httpClient.post<never>(`${this.baseUrl}`, data);
+    const headers = new HttpHeaders().set(
+      'Ocp-Apim-Subscription-Key',
+      '1bd54acd932e490fbdc1c2f7ab0e7814'
+    );
+    return this.httpClient.post<never>(
+      `${(this.baseUrl, { headers: headers })}`,
+      data
+    );
   }
 }
